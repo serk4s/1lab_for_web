@@ -1,0 +1,158 @@
+/* ======================== */
+/* 1. Общие стили и сброс */
+/* ======================== */
+:root {
+    --primary-color: #007BFF; /* Синий */
+    --secondary-color: #6C757D; /* Серый */
+    --background-light: #f8f9fa;
+    --text-dark: #343a40;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    /* Задаем минимальную ширину для удобства разработки */
+    min-width: 320px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Ограничиваем контент по центру для Desktop */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+    margin-bottom: 0; /* Убираем margin, используем padding */
+    border: none; /* Убираем временную рамку */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* ======================== */
+/* 2. Header & Навигация (Flexbox) */
+/* ======================== */
+header {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 15px 0;
+    position: sticky; /* Закрепляем Header */
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between; /* Распределяем имя и навигацию */
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    /* Flexbox для горизонтального меню */
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+nav a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* ======================== */
+/* 3. Skills (Flexbox) */
+/* ======================== */
+#skills .skills-list {
+    /* Flexbox для карточек навыков */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Позволяем переноситься на меньших экранах */
+    gap: 20px;
+    padding: 20px;
+}
+
+#skills .skills-list > div {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    /* Фиксированная ширина для десктопа */
+    flex: 0 1 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================== */
+/* 4. Portfolio (Grid) */
+/* ======================== */
+#portfolio .portfolio-grid {
+    /* Grid для расположения карточек работ */
+    display: grid;
+    /* 3 колонки одинаковой ширины для десктопа */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.portfolio-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: none; /* Убираем временную рамку */
+}
+
+/* ======================== */
+/* 5. Contacts & Footer */
+/* ======================== */
+#contacts address {
+    text-align: center;
+    font-style: normal;
+    /* Flexbox для контактов (по желанию, можно и без него, но для центрирования удобно) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: white;
+    margin-left: 10px;
+}
