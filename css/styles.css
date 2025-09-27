@@ -1,158 +1,245 @@
 /* ======================== */
-/* 1. Общие стили и сброс */
+/* 1. Общие стили и сброс (Авангард) */
 /* ======================== */
 :root {
-    --primary-color: #007BFF; /* Синий */
-    --secondary-color: #6C757D; /* Серый */
-    --background-light: #f8f9fa;
-    --text-dark: #343a40;
+    /* Цвета: Чёрный, Угольный, Белый/Серый */
+    --color-primary: #0f0f0f; /* Глубокий, почти черный фон */
+    --color-secondary: #1a1a1a; /* Карточки и хедер */
+    --color-text: #f0f0f0; /* Почти белый текст */
+    --color-accent: #999999; /* Сырой, светлый акцент */
+    --color-border: #444444; /* Более заметная строгая граница */
+    --color-hover-bg: #222222; /* Фон при наведении */
+
+    /* Типографика: Строгий шрифт без засечек */
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--background-light);
-    /* Задаем минимальную ширину для удобства разработки */
+    color: var(--color-text);
+    background-color: var(--color-primary);
     min-width: 320px;
 }
 
+/* Сброс стандартных стилей */
 a {
-    color: var(--primary-color);
+    color: var(--color-accent);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--color-text); /* Текст становится белее при наведении */
+    text-decoration: none;
 }
 
 /* Ограничиваем контент по центру для Desktop */
 .container {
-    max-width: 1200px;
+    max-width: 1000px; /* Немного уменьшим ширину для строгости */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px; /* Большие отступы по бокам */
 }
 
-section {
-    padding: 60px 0;
-    margin-bottom: 0; /* Убираем margin, используем padding */
-    border: none; /* Убираем временную рамку */
+/* Строгие заголовки */
+h1, h2 {
+    font-weight: 300; /* Тонкое начертание */
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--primary-color);
+    text-align: left; /* Строгое выравнивание */
+    margin-bottom: 60px;
+    color: var(--color-text);
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border); /* Строгая разделительная линия */
+    margin-bottom: 50px; /* Уменьшим отступ для строгости */
+    padding-top: 20px;
+    /* Увеличим толщину и заметность границы */
+    border-top: 2px solid var(--color-border);
+}
+
+section {
+    padding: 80px 0; /* Большие вертикальные отступы */
+    background-color: var(--color-primary);
 }
 
 /* ======================== */
 /* 2. Header & Навигация (Flexbox) */
 /* ======================== */
 header {
-    background-color: var(--text-dark);
+    background-color: var(--color-secondary);
     color: white;
     padding: 15px 0;
-    position: sticky; /* Закрепляем Header */
+    position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--color-border);
 }
 
 header .container {
     display: flex;
-    justify-content: space-between; /* Распределяем имя и навигацию */
+    justify-content: space-between;
     align-items: center;
 }
 
 header h1 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin: 0;
+    text-transform: none; /* Имя оставляем как есть */
+    letter-spacing: 0;
 }
 
+/* Навигация */
 nav ul {
     list-style: none;
     padding: 0;
-    /* Flexbox для горизонтального меню */
     display: flex;
-    gap: 25px;
+    gap: 30px;
     margin: 0;
 }
 
+nav a.active {
+    color: var(--color-text);
+    /* Более заметная, но тонкая линия */
+    border-bottom: 2px solid var(--color-text);
+    padding-bottom: 5px;
+}
+
 nav a {
-    color: white;
-    font-weight: bold;
+    color: var(--color-accent);
+    font-weight: 400;
     text-transform: uppercase;
+    font-size: 0.9em;
+    padding-bottom: 5px; /* Добавим отступ для линии */
 }
 nav a:hover {
-    color: var(--primary-color);
-    text-decoration: none;
+    color: var(--color-text);
 }
 
 /* ======================== */
-/* 3. Skills (Flexbox) */
+/* 3. About / О себе (Строгая типографика) */
+/* ======================== */
+#about {
+    padding-top: 100px;
+}
+
+#about h2 {
+    border-top: none; /* Убираем линию над первым заголовком */
+}
+
+#about p {
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+#about h3 {
+    margin-top: 40px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1em;
+}
+
+#about ul {
+    list-style: none;
+    padding-left: 0;
+}
+#about li::before {
+    content: "— "; /* Строгий маркер списка */
+    color: var(--color-accent);
+}
+
+
+/* ======================== */
+/* 4. Skills (Flexbox) */
 /* ======================== */
 #skills .skills-list {
     /* Flexbox для карточек навыков */
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Позволяем переноситься на меньших экранах */
-    gap: 20px;
-    padding: 20px;
+    justify-content: flex-start; /* Выравнивание по левому краю */
+    flex-wrap: wrap;
+    gap: 30px; /* Большой зазор */
+    padding: 0;
 }
 
 #skills .skills-list > div {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-    /* Фиксированная ширина для десктопа */
-    flex: 0 1 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-secondary);
+    padding: 25px;
+    border: 1px solid var(--color-border);
+    /* Тонкая, узкая карточка */
+    flex: 0 1 calc(33.333% - 20px);
+    box-shadow: none;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* ======================== */
-/* 4. Portfolio (Grid) */
+/* 5. Portfolio (Grid) */
 /* ======================== */
 #portfolio .portfolio-grid {
     /* Grid для расположения карточек работ */
     display: grid;
-    /* 3 колонки одинаковой ширины для десктопа */
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px; /* Большой зазор между карточками */
 }
 
 .portfolio-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border: none; /* Убираем временную рамку */
+    background-color: var(--color-secondary);
+    padding: 30px;
+    border: 1px solid var(--color-border);
+    box-shadow: none;
+    transition: background-color 0.3s;
+}
+
+.portfolio-item:hover {
+    background-color: #222222; /* Легкое затемнение при наведении */
+}
+
+.portfolio-item h3 {
+    font-size: 1.1em;
+    margin-top: 0;
+    color: var(--color-text);
+    text-transform: uppercase;
+}
+
+.portfolio-item p {
+    font-size: 0.9em;
+    color: var(--color-accent);
 }
 
 /* ======================== */
-/* 5. Contacts & Footer */
+/* 6. Contacts & Footer */
 /* ======================== */
 #contacts address {
-    text-align: center;
+    text-align: left; /* Строгое выравнивание по левому краю */
     font-style: normal;
-    /* Flexbox для контактов (по желанию, можно и без него, но для центрирования удобно) */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 15px;
+    max-width: 400px;
 }
 
 footer {
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 footer a {
-    color: white;
-    margin-left: 10px;
+    color: var(--color-accent);
+    margin-left: 15px;
+}
+footer a:hover {
+    color: var(--color-text);
 }

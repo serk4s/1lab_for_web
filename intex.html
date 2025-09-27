@@ -9,73 +9,84 @@
 <body>
 
 <header id="home">
-    <h1>Сергиенко Александр</h1>
-    <nav>
-        <ul>
-            <li><a href="#about">О себе</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#portfolio">Портфолио</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <h1>Сергиенко Александр</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">О себе</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <main>
     <section id="about">
-        <h2>О себе</h2>
-        <p>Привет! Меня зовут Сергиенко Александр.</p>
-        <p>Я студент **3 курса КемГУ**, изучаю программирование. Моя цель — стать квалифицированным разработчиком, используя современные подходы и технологии.</p>
-        <h3>Достижения:</h3>
-        <ul>
-            <li>Освоил основы HTML5 и CSS3.</li>
-            <li>Имею опыт работы с Git и GitHub.</li>
-            <li>Активно изучаю JavaScript и React.</li>
-        </ul>
+        <div class="container">
+            <h2>О себе</h2>
+            <p>Привет! Меня зовут Сергиенко Александр.</p>
+            <p>Я студент **3 курса КемГУ**, изучаю программирование. Моя цель — стать квалифицированным разработчиком, используя современные подходы и технологии.</p>
+            <h3>Достижения:</h3>
+            <ul>
+                <li>Освоил основы HTML5 и CSS3.</li>
+                <li>Имею опыт работы с Git и GitHub.</li>
+                <li>Активно изучаю JavaScript и React.</li>
+            </ul>
+        </div>
     </section>
 
     <section id="skills">
-        <h2>Навыки</h2>
-        <div class="skills-list">
-            <div>HTML5: Уровень 4/5</div>
-            <div>CSS3: Уровень 4/5 (Flexbox, Grid)</div>
-            <div>Git/GitHub: Уровень 3/5</div>
-            <div>JavaScript: Уровень 2/5 (Активно изучаю)</div>
+        <div class="container">
+            <h2>Навыки</h2>
+            <div class="skills-list">
+                <div>HTML5: Уровень 4/5</div>
+                <div>CSS3: Уровень 4/5 (Flexbox, Grid)</div>
+                <div>Git/GitHub: Уровень 3/5</div>
+                <div>JavaScript: Уровень 2/5 (Активно изучаю)</div>
+            </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2>Портфолио</h2>
-        <div class="portfolio-grid">
-            <article class="portfolio-item">
-                <h3>Лабораторная 1</h3>
-                <p>Статичная страница-визитка с адаптивной вёрсткой.</p>
-            </article>
-            <article class="portfolio-item">
-                <h3>Учебный проект 1</h3>
-                <p>Проект "ToDo List" на чистом JavaScript.</p>
-            </article>
-            <article class="portfolio-item">
-                <h3>Учебный проект 2</h3>
-                <p>Макет Landing Page (Flexbox).</p>
-            </article>
+        <div class="container">
+            <h2>Портфолио</h2>
+            <div class="portfolio-grid">
+                <article class="portfolio-item">
+                    <h3>Лабораторная 1</h3>
+                    <p>Статичная страница-визитка с адаптивной вёрсткой.</p>
+                </article>
+                <article class="portfolio-item">
+                    <h3>Учебный проект 1</h3>
+                    <p>Проект "ToDo List" на чистом JavaScript.</p>
+                </article>
+                <article class="portfolio-item">
+                    <h3>Учебный проект 2</h3>
+                    <p>Макет Landing Page (Flexbox).</p>
+                </article>
+            </div>
         </div>
     </section>
 
     <section id="contacts">
-        <h2>Контакты</h2>
-        <address>
-            <p>📧 Email: alexander.s.developer@example.com</p>
-            <p>📞 Телефон: +7 (900) 123-45-67</p>
-            <p>🔗 GitHub: <a href="#" target="_blank">github.com/myusername</a></p>
-            <p>🔗 Telegram: <a href="#" target="_blank">@my_tg_nick</a></p>
-        </address>
+        <div class="container">
+            <h2>Контакты</h2>
+            <address>
+                <p>📧 Email: alexander.s.sergienko@gmail.com</p>
+                <p>📞 Телефон: +7 (958) 851-44-88</p>
+                <p>🔗 GitHub: <a href="#" target="_blank">github.com/serk4s</a></p>
+                <p>🔗 Telegram: <a href="#" target="_blank">@SERK4s</a></p>
+            </address>
+        </div>
     </section>
 
 </main>
 
 <footer>
-    <p>&copy; 2025 Сергиенко Александр. КемГУ, 3 курс.</p>
-    <p><a href="#home">Наверх</a></p>
+    <div class="container"> <p>&copy; <span id="current-year">2025</span> Сергиенко Александр. КемГУ, 3 курс.</p>
+        <p><a href="#home">Наверх</a></p>
+    </div>
 </footer>
 
 <script src="index.js"></script>
