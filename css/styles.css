@@ -1,17 +1,17 @@
 /* ======================== */
-/* 1. Общие стили и сброс (Авангард) */
+/* 1. Общие стили и переменные (Матовый Авангард) */
 /* ======================== */
 :root {
-    /* Цвета: Чёрный, Угольный, Белый/Серый */
-    --color-primary: #0f0f0f; /* Глубокий, почти черный фон */
-    --color-secondary: #1a1a1a; /* Карточки и хедер */
-    --color-text: #f0f0f0; /* Почти белый текст */
-    --color-accent: #999999; /* Сырой, светлый акцент */
-    --color-border: #444444; /* Более заметная строгая граница */
-    --color-hover-bg: #222222; /* Фон при наведении */
+    /* Цвета: Глубокий, строгий монохром */
+    --color-primary: #0f0f0f;      /* Глубокий, почти черный фон */
+    --color-secondary: #1a1a1a;    /* Фон карточек и хедера */
+    --color-text: #f0f0f0;         /* Почти белый текст */
+    --color-accent: #999999;       /* Сырой, светлый акцент */
+    --color-border: #444444;       /* Строгая, матовая граница */
+    --color-hover-bg: #222222;     /* Фон при наведении */
 
-    /* Типографика: Строгий шрифт без засечек */
-    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Типографика: Чертежный/Программистский шрифт */
+    --font-primary: 'Space Mono', 'Roboto Mono', monospace;
 }
 
 body {
@@ -20,52 +20,83 @@ body {
     padding: 0;
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-primary);
     min-width: 320px;
+    font-size: 1.1rem;
+
+    /* ФОН: ЧЕРТЕЖНАЯ СЕТКА (Светлые линии на темном фоне) */
+    background-color: var(--color-primary);
+    background-image:
+        /* Вертикальные линии */
+            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                /* Горизонтальные линии */
+            linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px; /* Размер клетки: 20x20 */
+    filter: none;
 }
 
 /* Сброс стандартных стилей */
 a {
     color: var(--color-accent);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.1s linear; /* Резкий переход */
 }
 
 a:hover {
-    color: var(--color-text); /* Текст становится белее при наведении */
-    text-decoration: none;
+    color: var(--color-text);
 }
 
-/* Ограничиваем контент по центру для Desktop */
+/* Контейнер: Ограничиваем контент */
 .container {
-    max-width: 1000px; /* Немного уменьшим ширину для строгости */
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0 40px; /* Большие отступы по бокам */
+    padding: 0 40px;
 }
 
-/* Строгие заголовки */
+/* Применение асимметрии к основному контенту */
+main .container {
+    padding-left: 80px; /* Большой отступ слева */
+    padding-right: 40px; /* Обычный справа */
+}
+
+/* Строгие, тонкие заголовки */
 h1, h2 {
-    font-weight: 300; /* Тонкое начертание */
+    font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
+/* Заголовки секций: "Сломанный" контейнер (кроме секции About и Contacts) */
 h2 {
-    text-align: left; /* Строгое выравнивание */
-    margin-bottom: 60px;
+    text-align: left;
+    margin-bottom: 70px;
     color: var(--color-text);
     padding-top: 20px;
-    border-top: 1px solid var(--color-border); /* Строгая разделительная линия */
-    margin-bottom: 50px; /* Уменьшим отступ для строгости */
-    padding-top: 20px;
-    /* Увеличим толщину и заметность границы */
+    font-size: 2.5rem;
+
+    /* Асимметрия: сдвиг влево */
+    margin-left: -40px;
+    padding-left: 40px;
+
+    /* Для позиционирования линии (Brutalism) */
+    position: relative;
+}
+
+/* Линия-разделитель (псевдоэлемент) */
+h2::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
     border-top: 2px solid var(--color-border);
+    z-index: -1;
 }
 
 section {
-    padding: 80px 0; /* Большие вертикальные отступы */
-    background-color: var(--color-primary);
+    padding: 100px 0;
+    background-color: transparent;
 }
+
 
 /* ======================== */
 /* 2. Header & Навигация (Flexbox) */
@@ -77,7 +108,23 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid var(--color-border);
+}
+
+/* Анимированная линия хедера (резкая) */
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-border);
+    transition: background-color 0.1s linear, height 0.1s linear;
+}
+
+header:hover::after {
+    background-color: var(--color-text);
+    height: 2px;
 }
 
 header .container {
@@ -89,11 +136,10 @@ header .container {
 header h1 {
     font-size: 1.5em;
     margin: 0;
-    text-transform: none; /* Имя оставляем как есть */
+    text-transform: none;
     letter-spacing: 0;
 }
 
-/* Навигация */
 nav ul {
     list-style: none;
     padding: 0;
@@ -102,33 +148,39 @@ nav ul {
     margin: 0;
 }
 
-nav a.active {
-    color: var(--color-text);
-    /* Более заметная, но тонкая линия */
-    border-bottom: 2px solid var(--color-text);
-    padding-bottom: 5px;
-}
-
 nav a {
     color: var(--color-accent);
     font-weight: 400;
     text-transform: uppercase;
     font-size: 0.9em;
-    padding-bottom: 5px; /* Добавим отступ для линии */
+    padding-bottom: 5px;
+    transition: color 0.1s linear;
 }
 nav a:hover {
     color: var(--color-text);
 }
 
+/* Выделение активной ссылки (JS-интерактивность) */
+nav a.active {
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-text);
+    padding-bottom: 5px;
+}
+
 /* ======================== */
-/* 3. About / О себе (Строгая типографика) */
+/* 3. About / О себе */
 /* ======================== */
 #about {
     padding-top: 100px;
 }
 
 #about h2 {
-    border-top: none; /* Убираем линию над первым заголовком */
+    position: static;
+    margin-left: 0;
+    padding-left: 0;
+}
+#about h2::before {
+    content: none;
 }
 
 #about p {
@@ -138,76 +190,100 @@ nav a:hover {
 
 #about h3 {
     margin-top: 40px;
-    color: var(--color-accent);
+    color: var(--color-text);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1em;
+    font-size: 1.2rem;
 }
 
 #about ul {
     list-style: none;
     padding-left: 0;
 }
+#about li {
+    font-weight: 300;
+    transition: color 0.1s linear;
+}
 #about li::before {
-    content: "— "; /* Строгий маркер списка */
+    content: "— ";
     color: var(--color-accent);
 }
-
+#about li:hover {
+    color: var(--color-text);
+}
 
 /* ======================== */
-/* 4. Skills (Flexbox) */
+/* 4. Skills (Flexbox, Резкие углы, Оптимизированный gap) */
 /* ======================== */
 #skills .skills-list {
-    /* Flexbox для карточек навыков */
     display: flex;
-    justify-content: flex-start; /* Выравнивание по левому краю */
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px; /* Большой зазор */
+    /* Оптимизированный отступ */
+    gap: 20px;
     padding: 0;
 }
 
 #skills .skills-list > div {
     background-color: var(--color-secondary);
-    padding: 25px;
-    border: 1px solid var(--color-border);
-    flex: 0 1 calc(33.333% - 20px);
-    box-shadow: none;
+    padding: 30px;
+    border: 2px solid var(--color-border);
+
+    flex: 0 1 250px;
+    min-height: 100px;
+
+    border-radius: 0; /* Острые углы */
+    display: block;
+    text-align: left;
+
     font-size: 0.9em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease; /* Добавляем плавный переход */
+
+    /* Резкий переход */
+    transition: transform 0.1s linear, border-color 0.1s linear, background-color 0.1s linear;
 }
 #skills .skills-list > div:hover {
+    transform: scale(1.01);
+    border-color: var(--color-text);
     background-color: var(--color-hover-bg);
-    /* Небольшая, еле заметная тень для глубины */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-    border-color: var(--color-accent); /* Акцентная рамка при наведении */
+    box-shadow: none; /* Убран эффект свечения */
 }
 
 /* ======================== */
-/* 5. Portfolio (Grid) */
+/* 5. Portfolio (Grid & Асимметрия, Резкие углы) */
 /* ======================== */
 #portfolio .portfolio-grid {
-    /* Grid для расположения карточек работ */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px; /* Большой зазор между карточками */
+    gap: 50px;
 }
 
 .portfolio-item {
     background-color: var(--color-secondary);
-    padding: 30px;
-    border: 1px solid var(--color-border);
+    padding: 40px 30px;
+    border: 2px solid var(--color-border);
     box-shadow: none;
-    transition: all 0.3s;
+
+    border-radius: 0;
+
+    transition: all 0.1s linear;
+}
+
+/* Асимметрия: третий элемент занимает 2 колонки */
+.portfolio-item:nth-child(3) {
+    grid-column: span 2;
+    border-radius: 0;
+}
+.portfolio-item:nth-child(3) h3 {
+    font-size: 1.5rem;
 }
 
 .portfolio-item:hover {
     background-color: var(--color-hover-bg);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.08); /* Более заметная, но темная тень */
-    /* Текстурный эффект: смещение границы */
-    border: 1px solid var(--color-accent);
-    transform: translateY(-2px); /* Легкий подъем */
+    box-shadow: none;
+    border: 2px solid var(--color-text);
+    transform: translateY(-2px);
 }
 
 .portfolio-item h3 {
@@ -222,18 +298,36 @@ nav a:hover {
     color: var(--color-accent);
 }
 
+
 /* ======================== */
-/* 6. Contacts & Footer */
+/* 6. Contacts & Footer (Асимметрия справа) */
 /* ======================== */
 #contacts address {
-    text-align: left; /* Строгое выравнивание по левому краю */
+    text-align: right;
     font-style: normal;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 15px;
     max-width: 400px;
+    margin-left: auto;
 }
+
+/* Заголовок Contacts (Brutalism: сдвинут вправо) */
+#contacts h2 {
+    margin-left: auto;
+    margin-right: -40px;
+    padding-right: 40px;
+    padding-left: 0;
+    text-align: right;
+}
+
+/* Линия-разделитель для Contacts */
+#contacts h2::before {
+    left: unset;
+    right: 0;
+}
+
 
 footer {
     background-color: var(--color-secondary);
@@ -252,4 +346,152 @@ footer a {
 }
 footer a:hover {
     color: var(--color-text);
+}
+
+
+/* ======================== */
+/* 7. Адаптивность (Media Queries) */
+/* ======================== */
+
+/* ----------------------- */
+/* Tablet (768px - 1000px) */
+/* ----------------------- */
+@media (min-width: 768px) and (max-width: 1000px) {
+
+    .container {
+        padding: 0 20px;
+    }
+
+    main .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    h2 {
+        margin-left: -20px;
+        padding-left: 20px;
+        font-size: 2rem;
+    }
+
+    /* Корректируем Contact H2 */
+    #contacts h2 {
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+
+    /* Portfolio: 2 колонки на планшете */
+    #portfolio .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    /* Асимметрия третьего элемента */
+    .portfolio-item:nth-child(3) {
+        grid-column: span 2;
+    }
+
+    /* Skills: 2 карточки в ряд */
+    #skills .skills-list {
+        justify-content: space-around;
+    }
+    #skills .skills-list > div {
+        flex: 0 1 calc(50% - 10px);
+    }
+}
+
+/* ----------------------- */
+/* Mobile (≤ 767px) */
+/* ----------------------- */
+@media (max-width: 767px) {
+
+    /* Возвращаем стандартные отступы */
+    .container,
+    main .container {
+        padding: 0 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Header: Складываем элементы вертикально */
+    header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    header::after {
+        content: none;
+    }
+
+    /* Навигация: Ссылки вертикально */
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    nav li {
+        padding: 5px 0;
+        border-bottom: 1px dashed var(--color-border);
+    }
+    nav li:last-child {
+        border-bottom: none;
+    }
+    nav a {
+        display: block;
+    }
+
+    /* Заголовки: центрирование и убираем сдвиг */
+    h2 {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+    }
+    h2::before {
+        left: 0;
+        right: unset;
+        width: 100%;
+    }
+    #about h2 {
+        position: static;
+        text-align: center;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    /* Контакты: центрируем */
+    #contacts h2 {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+    #contacts address {
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /* Skills: 1 карточка в ряд */
+    #skills .skills-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    #skills .skills-list > div {
+        flex: 1 1 100%;
+    }
+
+    /* Portfolio: 1 колонка в ряд, убираем асимметрию */
+    #portfolio .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .portfolio-item,
+    .portfolio-item:nth-child(3) {
+        grid-column: span 1;
+    }
 }

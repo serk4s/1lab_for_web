@@ -3,80 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сергиенко Александр | Визитка</title>
+    <title>Сергиенко Александр | Портфолио</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header id="home">
+<header>
     <div class="container">
         <h1>Сергиенко Александр</h1>
         <nav>
             <ul>
-                <li><a href="#about">О себе</a></li>
-                <li><a href="#skills">Навыки</a></li>
-                <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#about" class="nav-link active">О СЕБЕ</a></li>
+                <li><a href="#skills" class="nav-link">НАВЫКИ</a></li>
+                <li><a href="#portfolio" class="nav-link">ПОРТФОЛИО</a></li>
+                <li><a href="#contacts" class="nav-link">КОНТАКТЫ</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main>
-    <section id="about">
+
+    <section id="about" class="section">
         <div class="container">
-            <h2>О себе</h2>
-            <p>Привет! Меня зовут Сергиенко Александр.</p>
-            <p>Я студент **3 курса КемГУ**, изучаю программирование. Моя цель — стать квалифицированным разработчиком, используя современные подходы и технологии.</p>
-            <h3>Достижения:</h3>
+            <h2>О СЕБЕ</h2>
+            <p>
+                Front-End разработчик, ориентированный на создание функциональных пользовательских интерфейсов. Глубоко убежден, что дизайн должен быть не просто красивым, но и идеологически выдержанным, что привело меня к изучению концепций в вебе.
+            </p>
+            <p>
+                В работе ценю четкость, минимализм и внимание к типографике. Основной фокус на пользовательских ощущениях и обеспечении максимальной доступности и производительности.
+            </p>
+
+            <h3>ЦЕЛИ</h3>
             <ul>
-                <li>Освоил основы HTML5 и CSS3.</li>
-                <li>Имею опыт работы с Git и GitHub.</li>
-                <li>Активно изучаю JavaScript и React.</li>
+                <li>Углубленное изучение Web-разработки.</li>
+                <li>Освоение бэкэнд-разработки для создания full-stack продуктов.</li>
+                <li>Изучение Web-дизайна.</li>
             </ul>
         </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section">
         <div class="container">
-            <h2>Навыки</h2>
+            <h2>НАВЫКИ</h2>
             <div class="skills-list">
-                <div>HTML5: Уровень 4/5</div>
-                <div>CSS3: Уровень 4/5 (Flexbox, Grid)</div>
-                <div>Git/GitHub: Уровень 3/5</div>
-                <div>JavaScript: Уровень 2/5 (Активно изучаю)</div>
+                <div>HTML5: УРОВЕНЬ 2/5</div>
+                <div>CSS3: УРОВЕНЬ 3/5 (FLEXBOX, GRID)</div>
+                <div>GIT/GITHUB: УРОВЕНЬ 3/5</div>
+                <div>JAVASCRIPT: УРОВЕНЬ 2/5 (АКТИВНО ИЗУЧАЮ)</div>
+                <div>АДАПТИВНАЯ ВЕРСТКА</div>
+                <div>КРОССБРАУЗЕРНОСТЬ</div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio">
+    <section id="portfolio" class="section">
         <div class="container">
-            <h2>Портфолио</h2>
+            <h2>ПОРТФОЛИО</h2>
             <div class="portfolio-grid">
-                <article class="portfolio-item">
-                    <h3>Лабораторная 1</h3>
-                    <p>Статичная страница-визитка с адаптивной вёрсткой.</p>
-                </article>
-                <article class="portfolio-item">
-                    <h3>Учебный проект 1</h3>
-                    <p>Проект "ToDo List" на чистом JavaScript.</p>
-                </article>
-                <article class="portfolio-item">
-                    <h3>Учебный проект 2</h3>
-                    <p>Макет Landing Page (Flexbox).</p>
-                </article>
+
+                <div class="portfolio-item">
+                    <h3>ПРОЕКТ 1: ТЕЛЕГРАМ БОТ</h3>
+                    <p>Создан телеграм бот, для помощи студентам КемГУ.</p>
+                    <a href="#" target="_blank">ПОСМОТРЕТЬ</a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3>ПРОЕКТ 2: МУЗЫКАЛЬНЫЙ САЙТ</h3>
+                    <p>Музыкальный сайт с поиком музыки по исполнителям, жанру и чарту.</p>
+                    <a href="#" target="_blank">ПОСМОТРЕТЬ</a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3>ПРОЕКТ 3: БАЗА ДАННЫХ ДЛЯ СПОРТ ОРГАНИЗАЦИЙ В КУЗБАССЕ</h3>
+                    <p>Реализована БД для спортивных организаций области с отслеживанием организаций, видов спорта в регионе и спортсменов.</p>
+                    <a href="#" target="_blank">ПОСМОТРЕТЬ</a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h3>ПРОЕКТ 4: САЙТ SOLARPOWERBANK</h3>
+                    <p>Сделал дизайн и реализовал сайт для стартапа из Москвы с корнями из Кузбасса.</p>
+                    <a href="#" target="_blank">ПОСМОТРЕТЬ</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contacts">
+    <section id="contacts" class="section">
         <div class="container">
-            <h2>Контакты</h2>
+            <h2>КОНТАКТЫ</h2>
             <address>
-                <p>📧 Email: alexander.s.sergienko@gmail.com</p>
-                <p>📞 Телефон: +7 (958) 851-44-88</p>
-                <p>🔗 GitHub: <a href="#" target="_blank">github.com/serk4s</a></p>
-                <p>🔗 Telegram: <a href="#" target="_blank">@SERK4s</a></p>
+                <a href="mailto:your.email@example.com">alexander.s.sergienko@gmail.com</a>
+                <a href="tel:+79588514488">+7-(958)-851-44-88</a>
+                <a href="https://t.me/SERK4S" target="_blank">TELEGRAM</a>
+                <a href="https://github.com/serk4s" target="_blank">GITHUB</a>
             </address>
         </div>
     </section>
@@ -84,12 +108,19 @@
 </main>
 
 <footer>
-    <div class="container"> <p>&copy; <span id="current-year">2025</span> Сергиенко Александр. КемГУ, 3 курс.</p>
-        <p><a href="#home">Наверх</a></p>
+    <div class="container">
+        © 2025. СЕРГИЕНКО АЛЕКСАНДР | БУДУЩИЙ FULL-STACK (может быть)
     </div>
 </footer>
 
-<script src="index.js"></script>
+<script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
 
 </body>
 </html>
